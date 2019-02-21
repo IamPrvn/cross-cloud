@@ -8,6 +8,7 @@ resource "oci_core_subnet" "K8sSubnetAD1" {
   route_table_id      = "${oci_core_route_table.public-route-table.id}"
   security_list_ids   = ["${list(oci_core_security_list.K8sSubnetSecurityList.id)}"]
   dhcp_options_id     = "${oci_core_virtual_network.cross-cloud-vcn.default_dhcp_options_id}"
+  dns_label           =  "kubesubnetad1"
 }
 
 resource "oci_core_subnet" "K8sSubnetAD2" {
@@ -20,6 +21,7 @@ resource "oci_core_subnet" "K8sSubnetAD2" {
   route_table_id      = "${oci_core_route_table.public-route-table.id}"
   security_list_ids   = ["${list(oci_core_security_list.K8sSubnetSecurityList.id)}"]
   dhcp_options_id     = "${oci_core_virtual_network.cross-cloud-vcn.default_dhcp_options_id}"
+  dns_label           = "kubesubnetad2"
 }
 
 resource "oci_core_subnet" "LbSubnetAD1" {
@@ -32,6 +34,7 @@ resource "oci_core_subnet" "LbSubnetAD1" {
   route_table_id      = "${oci_core_route_table.public-route-table.id}"
   security_list_ids   = ["${list(oci_core_security_list.LbSubnetSecurityList.id)}"]
   dhcp_options_id     = "${oci_core_virtual_network.cross-cloud-vcn.default_dhcp_options_id}"
+  dns_label           = "lbsubnetad1"
 }
 
 resource "oci_core_subnet" "LbSubnetAD2" {
@@ -44,4 +47,5 @@ resource "oci_core_subnet" "LbSubnetAD2" {
   route_table_id      = "${oci_core_route_table.public-route-table.id}"
   security_list_ids   = ["${list(oci_core_security_list.LbSubnetSecurityList.id)}"]
   dhcp_options_id     = "${oci_core_virtual_network.cross-cloud-vcn.default_dhcp_options_id}"
+  dns_label           = "lbsubnetad2"
 }
